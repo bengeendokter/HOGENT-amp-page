@@ -1,11 +1,68 @@
+body {
+  background-image: url("/images/background_mobile.png");
+  background-color: #41436a;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+  font-weight: bold;
+  min-height: 500vh;
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    background-image: url("/images/background_dekstop.png");
+    background-color: #41436a;
+    -o-background-size:       100% auto;
+    -webkit-background-size:  100% auto;
+    -moz-background-size:     100% auto;
+    background-size:          100% auto;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
 h1 {
     margin: 1rem;
   }
 
 body {
-    background-color: blue;
+    margin: 0;
+    padding: 0;
 }
 
 img {
     margin: 0 auto;
+}
+
+.carousel_header {
+  text-align: center;
+}
+
+.carousel_imgs::before {
+  content: "";
+  border-top: 10px solid white;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -5px;
+}
+.carousel_imgs::after {
+  content: "";
+  border-bottom: 10px solid white;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+}
+
+.carousel_imgs {
+  padding: 10px 5px;
+  position: relative;
+  margin: 15px 0;
+  background-color: rgba(255,255,255, 0.25);
 }
