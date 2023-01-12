@@ -1,18 +1,245 @@
+.sidebarContainer {
+  width: 50%;
+  color: black;
+  background-color: white;
+}
+.sidebar {
+  padding: 10px 0;
+  margin: 0;
+  margin-top: 10px;
+}
+.sidebar > li {
+  list-style: none;
+  border-bottom: 2px solid black;
+  height: 50px;
+  width: 100%;
+  display: flex;
+}
+.sidebar > li:first-child {
+  border-top: 2px solid black;
+}
+.sidebar > li > a {
+  text-decoration: none;
+  flex: 1 1 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+}
+.sidebar > li > a:hover {
+  background-color: #408698;
+  color: white;
+}
+
+.close-sidebar {
+  font-size: 1.5em;
+  padding-left: 5px;
+}
+.close-sidebar:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.smallScreenWarframe {
+  display: none;
+}
+
+.introDiv {
+  max-height: 200px;
+  max-width: 300px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.introDiv p {
+  margin: 0 auto;
+  font-size: larger;
+}
+
+.introLinks {
+  display: flex;
+  gap: 10px;
+  margin: 15px auto;
+  z-index: 999;
+  width: 100%;
+}
+
+.introLinks a {
+  height: 50px;
+  width: 100%;
+  flex: 1 1 50%;
+  border-radius: 5px;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.introLinks a:first-child {
+  background-color: #b30000;
+  border: 2px solid #b30000;
+}
+
+.introLinks a:hover {
+  background-color: white;
+  color: black;
+}
+
+.introLinks a:first-child:hover {
+  background-color: white;
+  color: #b30000;
+  border-color: white;
+}
+
+.introImageContainer {
+  width: 90%;
+  height: 100%;
+  position: relative;
+}
+
+.introImage {
+  z-index: 1000;
+}
+
+.video-overlay {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  max-height: 95vh;
+}
+
+.video-overlay:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+
+.video-overlay amp-video {        
+width: 100%;
+height: auto;
+max-height: auto;
+z-index: -1;
+}
+
+.video-overlay amp-video .i-amphtml-fill-content {
+width: 100%;
+height: auto;
+z-index: -1;
+}
+
+.navLinks {
+  margin-left: auto;
+  margin-right: 10px;
+  display: flex;
+  gap: 25px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  font-size: large;
+}
+
+.hamburger {
+  width: 50px;
+  height: 60px;
+  display: none;
+  padding: 0;
+}
+
+.hamburgerIcon {
+  margin: auto;
+}
+.hamburgerIcon:hover {
+  cursor: pointer;
+}
+
+.navLinks a:hover {
+  color: #408698;
+}
+
+.navLinks a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  background: #408698;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.navLinks a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+
+.home-button {
+  z-index: 100001;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #408698;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.headerbar {
+  height: 60px;
+  position: sticky;
+  z-index: 10000;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
 body {
-  background-image: url("/images/background_mobile.png");
-  background-color: #41436a;
+  /* background-image: url("/images/background_mobile.png"); */
+  background-color: black;
   background-repeat: no-repeat;
   background-size: 100%;
   color: white;
-  font-weight: bold;
-  min-height: 500vh;
   font-family: "Ubuntu", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 600px) {
   body {
-    background-image: url("/images/background_dekstop.png");
-    background-color: #41436a;
+    /* background-image: url("/images/background_dekstop.png"); */
+    background-color: black;
     -o-background-size:       100% auto;
     -webkit-background-size:  100% auto;
     -moz-background-size:     100% auto;
@@ -21,12 +248,9 @@ body {
 }
 
 h1 {
+  margin: 1rem;
   text-align: center;
 }
-
-h1 {
-    margin: 1rem;
-  }
 
 body {
     margin: 0;
@@ -65,4 +289,65 @@ img {
   position: relative;
   margin: 15px 0;
   background-color: rgba(255,255,255, 0.25);
+}
+
+.yt_video {
+  width: 100%;
+  text-align: center;
+}
+
+footer div {
+  background-color: red;
+  width: 100%;
+  height: 200px;
+}
+
+@media screen and (max-width: 350px) {
+  .introDiv {
+    max-height: 100px;
+    max-width: 100%;
+  }
+
+  .introImageContainer {
+    display: none;
+  }
+
+  .introImageContainer {
+    width: 50%;
+    height: 60%;
+    background-color: red;
+  }
+
+  body {
+    font-size: 12.5px;
+    font-weight: bold;
+  }
+
+  .introLinks a {
+    height: 30px;
+  }
+
+  .smallScreenWarframe {
+    display: inline;
+  }
+
+  .headerbar {
+    height: 40px;
+  }
+  .home-button {
+    z-index: 100001;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navLinks a {
+    display: none;
+  }
+
+  .navLinks .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
