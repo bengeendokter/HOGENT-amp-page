@@ -338,6 +338,10 @@ footer div {
     z-index: 100001;
     width: 50px;
   }
+
+  .video-overlay {
+    overflow-y: scroll;
+  }
 }
 
 @media screen and (max-width: 600px) {
