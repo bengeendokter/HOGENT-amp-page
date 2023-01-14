@@ -12,6 +12,7 @@
     <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
   </head>
@@ -101,7 +102,7 @@
         auto-advance-interval="3500" 
         visible-count="(min-width: 1200px) 3, (min-width: 600px) 2, 1"
         advance-count="(min-width: 1200px) 3, (min-width: 600px) 2, 1"
-        type="slide"
+        type="slides"
         >
             <amp-img class="slideImage" src="/images/slides/warframeImage1.jpg" width="300" height="350" ></amp-img>
             <amp-img class="slideImage" src="images/slides/warframeImage2.jpg" width="300" height="350" ></amp-img>
@@ -112,21 +113,35 @@
         </amp-base-carousel>
       </div>
 
-        <!-- <div class="yt_video">
+        <div class="yt_video">
+          <p>Official cinematic trailer:</p>
           <amp-youtube
-          data-videoid="npum8JsITQE"
-          layout="responsive"
-          width="480"
-          height="270">
-        <div fallback>
-          <p>The video could not be loaded.</p>
+            data-videoid="MsbL8lFHrZI"
+            layout="responsive"
+            width="1280"
+            height="720">
+            <div fallback>
+              <p>The video could not be loaded.</p>
+            </div>
+          </amp-youtube>
         </div>
-      </div> -->
-      </amp-youtube>
     </main>
     <footer>
-      <div>
-        Here comes the footer
+      <div> 
+        <div class="socialLinks">
+          <a class="socialLink" href="https://www.instagram.com/playwarframe/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/instagram.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://www.facebook.com/PlayWarframe/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/facebook.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://www.linkedin.com/company/digital-extremes/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/linkedin.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://twitter.com/playwarframe" target="_blank">
+            <amp-img class="socialImage" src="images/socials/twitter.png" layout="fill"></amp-img>
+          </a>
+        </div>
       </div>
     </footer>
    </body>
