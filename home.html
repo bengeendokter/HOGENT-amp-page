@@ -1,0 +1,785 @@
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <style amp-custom>
+      body::-webkit-scrollbar-track
+      {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+      }
+
+      html::-webkit-scrollbar
+      {
+        width: 12px;
+        background-color: transparent;
+      }
+
+      html::-webkit-scrollbar-thumb
+      {
+        border: 1px solid black;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: white;
+      }
+      
+      .slideImage img  {
+        background:     
+        linear-gradient(to right, transparent 50%, #161b1a 100%),
+        linear-gradient(to top, transparent 90%, #161b1a 100%),
+        linear-gradient(to bottom, transparent 90%, #161b1a 100%), 
+        linear-gradient(to left, transparent 92%, #161b1a 100%);
+      }
+
+      .mainInfo {
+        width: 100%;
+        height: max-content;
+        margin-top: 7rem;
+        margin-bottom: 5rem;
+      }
+
+
+      .mainInfoContainer {
+        margin: 0 auto 50px auto;
+        max-width: 90%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 35% 60%;
+        grid-template-rows: 400px;
+        position: relative;
+        gap: 5%;
+      }
+
+      .mainInfoContainer:nth-child(even) {  
+        height: 100%;
+        grid-template-columns: 60% 35%;
+        grid-template-rows: minmax(400px, max-content);
+      }
+      .mainInfoContainer:nth-child(even) p {
+        grid-column: 1 / span 1;
+      }
+
+      .mainInfoImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .mainInfoImage > div {
+        background-color: rgba(0,0 ,0, 0.60);
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 50px;
+        height: 25%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .mainInfoImage > div > h2{
+        font-size: 50%;
+        padding: 5px;
+      }
+
+      .imageWarframe {
+        background-image: 
+          linear-gradient(to right, transparent 50%, #161b1a 100%),
+          linear-gradient(to top, transparent 90%, #161b1a 100%),
+          linear-gradient(to bottom, transparent 90%, #161b1a 100%), 
+          linear-gradient(to left, transparent 92%, #161b1a 100%), 
+          url("../images/imageWarframe.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        grid-column: 1 / span 1;
+      }
+      .imageTrading {
+        background-image: 
+          linear-gradient(to right, transparent 92%, #161b1a 100%),
+          linear-gradient(to top, transparent 90%, #161b1a 100%),
+          linear-gradient(to bottom, transparent 90%, #161b1a 100%), 
+          linear-gradient(to left, transparent 50%, #161b1a 100%), 
+          url("../images/imageTrading.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        grid-column: 2 / span 1;
+      }
+
+      .imageDE {
+        background-image: 
+          linear-gradient(to right, transparent 50%, #161b1a 100%),
+          linear-gradient(to top, transparent 90%, #161b1a 100%),
+          linear-gradient(to bottom, transparent 90%, #161b1a 100%), 
+          linear-gradient(to left, transparent 92%, #161b1a 100%), 
+          url("../images/imageDE.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        grid-column: 1 / span 1;
+      }
+
+      @media screen and (max-width: 650px) {
+        .mainInfoContainer {
+          grid-template-rows: 35% 65%;
+          grid-template-columns: 100%;
+          margin-bottom: 50px;
+        }
+        
+        .mainInfoContainer:nth-child(even) {  
+          grid-template-rows: 35% 65%;
+          grid-template-columns: 100%;
+        }
+        .mainInfoContainer:nth-child(even) .mainInfoImage {
+          grid-column: 1;
+          grid-row: 1/ 2;
+        }
+      }
+
+      .mainInfoContainer p {
+        margin: auto;
+        text-align: center;
+        max-width: 750px;
+        width: 99%;
+        word-wrap: break-word;
+      }
+
+      .mainInfoText{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: max-content;
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .mainInfoText p {
+        width: 100%;
+        height: 70%;
+        margin: auto;
+      }
+      .mainInfoText a {
+        height: 20%;
+        text-decoration: underline;
+        color: white;
+      }
+
+      .mainInfoText .validLink {
+        padding: 20px;
+        background-color: #b30000;
+        color: white;
+        text-decoration: none;
+        border-radius: 1px;
+      }
+      .mainInfoText .validLink:hover {
+        background-color: white;
+        color: #b30000;
+      }
+
+
+
+      /* .mainInfoContainer::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: white;
+        top: -5px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 25%;
+      }
+      .mainInfoContainer::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: white;
+        bottom: -5px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 10%;
+      } */
+
+      .sidebarContainer {
+        width: 50%;
+        color: black;
+        background-color: white;
+      }
+      .sidebar {
+        padding: 10px 0;
+        margin: 0;
+        margin-top: 10px;
+      }
+      .sidebar > li {
+        list-style: none;
+        border-bottom: 2px solid black;
+        height: 50px;
+        width: 100%;
+        display: flex;
+      }
+      .sidebar > li:first-child {
+        border-top: 2px solid black;
+      }
+      .sidebar > li > a {
+        text-decoration: none;
+        flex: 1 1 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-weight: bold;
+      }
+      .sidebar > li > a:hover {
+        background-color: #408698;
+        color: white;
+      }
+
+      .close-sidebar {
+        font-size: 1.5em;
+        padding-left: 5px;
+      }
+      .close-sidebar:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .smallScreenWarframe {
+        display: none;
+      }
+
+      .introDiv {
+        max-height: 200px;
+        max-width: 300px;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .introDiv p {
+        margin: 0 auto;
+        font-size: larger;
+      }
+
+      .introLinks {
+        display: flex;
+        gap: 10px;
+        margin: 15px auto;
+        z-index: 999;
+        width: 100%;
+      }
+
+      .introLinks a {
+        height: 50px;
+        width: 100%;
+        flex: 1 1 50%;
+        border-radius: 5px;
+        border: 2px solid white;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .introLinks a:first-child {
+        background-color: #b30000;
+        border: 2px solid #b30000;
+      }
+
+      .introLinks a:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .introLinks a:first-child:hover {
+        background-color: white;
+        color: #b30000;
+        border-color: white;
+      }
+
+      .introImageContainer {
+        width: 90%;
+        height: 100%;
+        position: relative;
+      }
+
+      .introImage {
+        z-index: 1000;
+      }
+
+      .video-overlay {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        max-height: 95vh;
+      }
+
+      .video-overlay:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, #161b1a 100%);
+      }
+
+      .video-overlay amp-video {        
+      width: 100%;
+      height: auto;
+      max-height: auto;
+      z-index: -1;
+      }
+
+      .navLinks {
+        margin-left: auto;
+        margin-right: 10px;
+        display: flex;
+        gap: 25px;
+      }
+
+      .navLinks a {
+        text-decoration: none;
+        color: black;
+        text-transform: capitalize;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-weight: bold;
+        font-size: large;
+      }
+
+      .hamburger {
+        width: 50px;
+        height: 60px;
+        display: none;
+        padding: 0;
+      }
+
+      .hamburgerIcon {
+        margin: auto;
+      }
+      .hamburgerIcon:hover {
+        cursor: pointer;
+      }
+
+      .navLinks a:hover {
+        color: #408698;
+      }
+
+      .navLinks a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 4px;
+        left: 0;
+        position: absolute;
+        background: #408698;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      .navLinks a:hover:after { 
+        width: 100%; 
+        left: 0; 
+      }
+
+
+      .home-button {
+        z-index: 100001;
+        width: 100px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #408698;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .headerbar {
+        height: 60px;
+        position: sticky;
+        z-index: 10000;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+      }
+      body {
+        /* background-image: url("/images/background_mobile.png"); */
+        background-color: #161b1a;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: white;
+        font-family: "Ubuntu", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      @media screen and (min-width: 600px) {
+        body {
+          /* background-image: url("/images/background_dekstop.png"); */
+          background-color: #161b1a;
+          -o-background-size:       100% auto;
+          -webkit-background-size:  100% auto;
+          -moz-background-size:     100% auto;
+          background-size:          100% auto;
+        }
+      }
+
+      h1 {
+        margin: 1rem;
+        text-align: center;
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+      }
+
+      img {
+          margin: 0 auto;
+      }
+
+      .carousel_header {
+        text-align: center;
+      }
+
+      .slides {
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+      }
+      .slides p {
+        font-size: 25px;
+        text-align: center;
+      }
+
+      .carousel_imgs {
+        padding: 10px 5px;
+        position: relative;
+        margin: 15px 0;
+        height: 500px;
+        width: 100%;
+      }
+
+      .yt_video {
+        max-width: 812px;
+        width: 95%;
+        margin: 15px auto;
+        padding: 5px;
+        height: max-content;
+        position: relative;
+      }
+      .yt_video p {
+        font-size: 25px;
+        text-align: center;
+      }
+
+
+      @media screen and (max-width: 300px) {
+        .slides p {
+          font-size: 15px;
+          text-align: center;
+        }
+
+        .yt_video p {
+          font-size: 15px;
+          text-align: center;
+        }
+      }
+
+      footer {
+        margin-top: 14rem;
+        position: relative;
+      }
+      footer::before {
+        content: "";
+        background: white;
+        position: absolute;
+        height: 2px;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 600px;
+        width: 90%;
+      }
+
+      footer div {
+        width: 100%;
+        max-height: 200px;
+      }
+
+      .socialLinks {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 1250px;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 10px 0;
+      }
+
+      .socialLink {
+        position: relative;
+        border-radius: 50%;
+        background-color: white;
+        transition: all 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(1.1);
+      }
+      .socialLink:hover {
+
+        background-color: #408698;
+      }
+
+      @media screen and (max-width: 215px) {
+        .socialLink {
+          width: 30px;
+          height: 30px;
+        }
+        .mainInfo{
+          margin-top: 10px;
+        }
+
+        .mainInfoContainer {
+          margin-bottom: 25px;
+        }
+      }
+
+      @media screen and (min-width: 215px) {
+        .socialLink {
+          width: 40px;
+          height: 40px;
+        }
+        .mainInfo{
+          margin-top: 10px;
+        }
+        .mainInfoContainer {
+          margin-bottom: 100px;
+        }
+      }
+
+      @media screen and (min-width: 550px) {
+        .socialLink{
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      @media screen and (max-width: 350px) {
+        .introDiv {
+          max-height: 100px;
+          max-width: 100%;
+        }
+
+        .introImageContainer {
+          display: none;
+        }
+
+        .introImageContainer {
+          width: 50%;
+          height: 60%;
+
+        }
+
+        body {
+          font-size: 12.5px;
+          font-weight: bold;
+        }
+
+        .introLinks a {
+          height: 30px;
+        }
+
+        .smallScreenWarframe {
+          display: inline;
+        }
+
+        .headerbar {
+          height: 40px;
+        }
+        .home-button {
+          z-index: 100001;
+          width: 50px;
+        }
+
+        .video-overlay {
+          overflow-y: scroll;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .navLinks a {
+          display: none;
+        }
+
+        .navLinks .hamburger {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    </style>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+
+  </head>
+  <body>
+    <amp-sidebar class="sidebarContainer" id="sidebar1" layout="nodisplay" side="right">
+      <div tabindex="0" role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" class="close-sidebar">✕</div>
+      <ul class="sidebar">
+        <!-- 
+          <li><a href="trading.html">Trading</a></li>
+          <li><a href="warframes.html">Warframes</a></li> 
+        -->
+        <li><a href="https://warframe.fandom.com/wiki/WARFRAME_Wiki" target="_blank">Visit the wiki</a></li>
+      </ul>
+    </amp-sidebar>
+    <header class="headerbar">
+      <a href="home.html" class="home-button">
+        <amp-img tabindex="2" class="home-button-img" src="images/WarframeLogoWhite.png" alt="Warframe logo" layout="fixed" height="30" width="50"></amp-img>
+      </a>
+      <nav class="navLinks">
+        <!-- 
+          <a href="trading.html">Trading</a>
+          <a href="frames.html">Warframes</a>
+        -->
+        <a href="https://warframe.fandom.com/wiki/WARFRAME_Wiki" target="_blank">Visit the wiki</a>
+        <div class="hamburger">
+          <amp-img tabindex="1" role="button" on="tap:sidebar1.toggle" class="hamburgerIcon" src="./images/menu.svg" alt="Hamburger menu icon" layout="fixed" width="40" height="30"></amp-img>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="video-overlay">
+        <div class="introDiv">
+          <div class="introImageContainer">
+            <amp-img class="introImage" src="./images/fullWarframeLogo.png" alt="Warframe logo full" layout="fill"></amp-img>
+          </div>
+          <p><span class="smallScreenWarframe">Warframe: </span>Lua's Prey</p>
+          <div class="introLinks">
+            <a href="https://www.youtube.com/watch?v=DLx3xbQ44Aw" target="_blank">
+              Watch trailer
+            </a>
+            <a href="https://www.warframe.com/news/luas-prey" target="_blank">
+              Learn more
+            </a>
+          </div>
+        </div>
+        <amp-video src="videos/masthead-video.webm" loop autoplay layout="responsive" height="720" width="1280" poster="images/luasBG.png"/>
+     </div>
+
+      <div class="mainInfo">
+        <div class="mainInfoContainer">
+          <div class="mainInfoImage imageWarframe">
+            <div>
+              <h2>Warframe</h2>
+            </div>
+          </div>
+          <div class="mainInfoText">
+            <p>What is Warframe? Well, it&#39;s a third person shooter/action game that is defined by fast-paced gameplay, intense melee combat, and an awful lot of lore. While the jargon can seem a little confusing at first, most of it will be rolled out as you play through the story. So don&#39;t worry too much if it all seems like gobbledegook—it is, but then most of the best games are.</p>
+            <!-- https://www.greenmangaming.com/free-to-play/warframe/what-is-warframe/ -->
+            <a class="validLink" href="https://www.warframe.com/" target="_blank">Visit website</a>
+          </div>
+        </div>
+        <div class="mainInfoContainer">
+          <div class="mainInfoText">
+            <p class="changeGrid">Easily trade in-game by using "trade chat" or using the gui provided by dedicated fans at "<a target="_blank" href="https://warframe.market/">warframe market</a>". Invite a fellow player to trade in your own dojo or search for potential buyers at Maroo's bazaar.</p>
+          </div>
+          <div class="mainInfoImage imageTrading">
+            <div>
+              <h2>Trading</h2>
+            </div>
+          </div>
+        </div>
+        <div class="mainInfoContainer">
+          <div class="mainInfoImage imageDE">
+            <div>
+              <h2>Digital Extremes</h2>
+            </div>
+          </div>
+          <div class="mainInfoText">
+            <p>Digital Extremes is a Canadian video game developer founded in 1993 by James Schmalz. They are best known for creating Warframe, a free-to-play cooperative online action game, and co-creating Epic Games' Unreal series of games. Digital Extremes is headquartered in London, Ontario.</p>
+            <!-- https://en.wikipedia.org/wiki/Digital_Extremes#:~:text=Digital%20Extremes%20is%20a%20Canadian,is%20headquartered%20in%20London%2C%20Ontario. -->    
+            <a class="validLink" href="https://www.digitalextremes.com/about#:~:text=CREATING%20INNOVATIVE%20GAMES%20FOR%20MORE,to%2Dplay%20success%20of%20Warframe." target="_blank">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="slides">
+        <p>Some photos</p>
+        <amp-base-carousel 
+        class="carousel_imgs"
+        loop="true"
+        layout="fill" 
+        auto-advance="true" 
+        auto-advance-interval="2500" 
+        visible-count="(min-width: 1200px) 3, (min-width: 600px) 2, 1"
+        advance-count="(min-width: 1200px) 3, (min-width: 600px) 2, 1"
+        >
+            <amp-img class="slideImage" src="/images/slides/warframeImage1.jpg" alt="Corpus laboratory" width="300" height="350" ></amp-img>
+            <amp-img class="slideImage" src="images/slides/warframeImage2.jpg" alt="Zariman statue" width="300" height="350" ></amp-img>
+            <amp-img class="slideImage" src="/images/slides/warframeImage3.png" alt="Necramechs side-by-side" width="300" height="350" ></amp-img>
+            <amp-img class="slideImage" src="images/slides/warframeImage4.jpg" alt="Entrance Cetus" width="300" height="350" ></amp-img>
+            <amp-img class="slideImage" src="images/slides/warframeImage5.jpg" alt="Fortuna resident greeting tenno" width="300" height="350" ></amp-img>
+            <amp-img class="slideImage" src="images/slides/warframeImage6.png" alt="view of landscape on venus, Orb Vallis" width="300" height="350" ></amp-img>
+        </amp-base-carousel>
+      </div>
+
+        <div class="yt_video">
+          <p>Official cinematic trailer:</p>
+          <amp-youtube
+            data-videoid="MsbL8lFHrZI"
+            layout="responsive"
+            width="1280"
+            height="720">
+            <div fallback>
+              <p>The video could not be loaded.</p>
+            </div>
+          </amp-youtube>
+        </div>
+    </main>
+    <footer>
+      <div> 
+        <div class="socialLinks">
+          <a class="socialLink" href="https://www.instagram.com/playwarframe/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/instagram.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://www.facebook.com/PlayWarframe/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/facebook.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://www.linkedin.com/company/digital-extremes/" target="_blank">
+            <amp-img class="socialImage" src="images/socials/linkedin.png" layout="fill"></amp-img>
+          </a>
+          <a class="socialLink" href="https://twitter.com/playwarframe" target="_blank">
+            <amp-img class="socialImage" src="images/socials/twitter.png" layout="fill"></amp-img>
+          </a>
+        </div>
+      </div>
+    </footer>
+   </body>
+</html>
